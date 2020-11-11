@@ -10,5 +10,5 @@
 |TC_8	|Check if the page is redirected to the registration on clicking the link on the image|	Loaded the image on the webpage|	Click on the link| 	Redirect to the registration form 	|Redirect to the registration form|
 |TC_9|	Validating the form |	Loaded the registration page| 	Enter the details| 	Error message for missing details |Error message for missing details|
 |TC_10|	Validate for incorrect details |	Loaded the registration page| 	Enter the incorrect details |	Error message for invalid details |	Error message for invalid details| 
-|TC_11	Click the Register button	Added all the necessary details 	Click on the register button 	Submit the details	Submit the details 
+|TC_11|	Click the Register button|	Added all the necessary details| 	Click on the register button| 	Submit the details	|Submit the details |
 
