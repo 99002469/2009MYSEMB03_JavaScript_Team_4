@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script src="CommonFunctions.js"></script>
+    <style>
+     
+
+      body {
+        font-size: 18px;
+        background-color:rgb(104, 176, 235);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+
+      h1 {
+        text-align: center;
+        text-decoration: underline;
+      }
+
+ 
+
+      form {
+        width: 350px;
+        padding: 15px;
+        border: 2px solid rgb(17, 31, 155);
+        margin: 50px auto 0;
+        border-radius: 5px;
+      }
+
+ 
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+ 
+
+      input,
+      select {
+        border: 1px solid lightgrey;
+        padding: 10px;
+        display: block;
+        width: 95%;
+        border-radius: 2px;
+      }
+      input.inline {
+        display: inline-block;
+        width: auto;
+        padding-right: 15px;
+      }
+      .row {
+        padding-bottom: 15px;
+      }
+      .err {
+        font-size: 0.8em;
+        color: indianred;
+      }
+      button {
+        display: block;
+        width: 95%;
+        height: 50px;
+        border-color: rgb(5, 14, 90);
+        background-color:rgb(100, 82, 184);
+        margin-top: 15px;
+        box-shadow: 0 3px 4px rgb(57, 63, 85);
+        margin-left: 8px;
+      }
+    </style>
+    <script>
+      function showErr(ele, msg) {
+        $get(ele).innerText = msg;
+      }
+      function validate() {
+        let fname = document.regForm.fname.value;
+        let lname = document.regForm.lname.value;
+        let email = document.regForm.email.value;
+        let telephone = document.regForm.telephone.value;
+        let profession = document.regForm.profession.value;
+        let ename = document.regForm.ename.value;
+        let age = document.regForm.age.value;
+
+ 
+
+        if (fname == "" || fname == null) {
+          showErr("errFName", "First Name is mandatory");
+          return false;
+        } else {
+          showErr("errFName", "");
+        }
+
+
+        if (lname == "" || lname == null) {
+          showErr("errLName", "Last Name is mandatory");
+          return false;
+        } else {
+          showErr("errLName", "");
+        }
+
+ 
+
+        if (email == "") {
+          showErr("errEmail", "Email is mandatory");
+          return false;
+        } else {
+          showErr("errEmail", "");
+        }
+
+ 
+
+        let regEx = new RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
+        if (!regEx.test(email)) {
+          showErr("errEmail", "Email is not in a valid format");
+          return false;
+        } else {
+          showErr("errEmail", "");
+        }
+
+ 
+
+        if (telephone == "") {
+          showErr("errPhone", "Phone number is mandatory");
+          return false;
+        } else {
+          showErr("errPhone", "");
+        }
+
+ 
+
+        regEx = new RegExp("^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$");
+        if (!regEx.test(telephone)) {
+          showErr("errPhone", "Phone number is not in a valid format");
+          return false;
+        } else {
+          showErr("errPhone", "");
+        }
+
+
+        if (profession == "" || profession == null) {
+          showErr("errProfession", "Profession is mandatory");
+          return false;
+        } else {
+          showErr("errProfession", "");
+        }
+
+            
+        if(age == "" || age == null || age == "-----Select -----"){
+            showErr("errAge", "Age is mandatory")
+            return false;
+        }else{
+            showErr("errAge", "")
+        } 
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <style>
+         header{
+        padding: 15px;
+        margin: 10px;
+        color:black;
+        background-color:whitesmoke;
+        height: 100px;
+        border: 2px solid red;
+        border-radius: 10px;
+        text-align:center;
+      }
+        b{
+          position: absolute;
+          right: 50px;
+          top:20px;
+          margin-top: 10px;
+
+        }
+        c{
+            position: absolute;
+            left: 50px;
+            top:20px;
+            margin-top: 10px;
+          }
+      </style>
+      
+      <h1 style="color: blue;">Rotary International</h1>
+      <b>
+      <img src= "..\Images\Rotry Theme.png",width="400px" height="95px"/> 
+      </b>
+      <c>
+      <img  src="..\Images\Rotry Logo.jpg",width="300px" height="95px"/>  
+      </c>
+     </header>
+
+    <form
+      action=""
+      name="regForm"
+      novalidate="true"
+      onsubmit="return validate()">
+      <h1>Join our Rotaract Family..</h1>
+      <div class="row">
+        <label for="fname">First Name</label>
+        <input type="text" name="fname" id="fname" placeholder="Enter the first name" maxlength="30"/>
+        <div id="errFName" class="err"></div>
+      </div>
+      <div class="row">
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" id="lname" placeholder="Enter the last name" maxlength="30"/>
+        <div id="errLName" class="err"></div>
+      </div>
+      <div class="row">
+        <label for="email">Email Address</label>
+        <input type="email" name="email" id="email" placeholder="Enter the email id" />
+        <div id="errEmail" class="err"></div>
+      </div>
+      <div class="row">
+        <label for="telephone">Telephone</label>
+        <input type="text" id="telephone" placeholder="Enter the telephone number" name="telephone" />
+        <div id="errPhone" class="err"></div>
+      </div>
+      <div class="row">
+        <label for="profession">Profession</label>
+        <input type="text" id="profession" placeholder="Enter the Profession" name="profession">
+        <div id="errProfession" class="err"></div>
+    </div> 
+    <div class="row">
+        <label for="ename">Employer Name</label>
+        <input type="text" id="ename" placeholder="Enter the Employer Name" name="ename">
+    </div>
+    <div class="row">
+        <label for="age" id="age" name="age">Age Range</label>
+        <select name="age" required>
+            <option>-----Select -----</option>
+            <option>1-15</option>
+            <option>16-17</option>
+            <option>18-29</option>
+            <option>30-39</option>
+            <option>40-49</option>
+        </select>
+        <div id="errAge" class="err"></div>
+        </div>
+      <button>Register</button>
+    </form>
+  </body>
+</html>
